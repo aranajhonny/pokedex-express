@@ -1,0 +1,82 @@
+<%- include('header') -%>
+<!-- pokemon -->
+<div class="container-fluid">
+  <div class="page-header">
+    <h4><%= pokemon.name %></h4>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-responsive"src="images/<%= pokemon.name %>.jpg" alt="">
+    </div>
+    <!-- Tabs -->
+    <div class="col-md-6">
+      <ul class="nav nav-tabs nav-justified">
+        <li><a href="#pokedex" aria-controls="home" role="tab" data-toggle="tab">Pokédex</a></li>
+        <li><a href="#stats" aria-controls="stats" role="tab" data-toggle="tab">Stats</a></li>
+      </ul>
+      <div class="tab-content">
+        <!-- Pokedex -->
+        <div role="tabpanel" class="tab-pane active" id="pokedex">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Type</strong>
+              <span class="pull-right">
+               <span class="label label-success pull-right">
+                <%= pokemon.type %>
+              </span>
+            </span>
+          </li>
+          <li class="list-group-item">
+            <strong>Height</strong>
+            <span class="pull-right"><%= pokemon.height %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Weight</strong>
+            <span class="pull-right"><%= pokemon.weight %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Abilities</strong>
+            <span class="pull-right">
+              <%= pokemon.abilities %>
+            </span>
+          </li>
+          <li class="list-group-item">
+            <strong>Evolution</strong>
+            <span class="badge"><%= pokemon.evolution %></span>
+          </li>
+        </ul>
+      </div>
+      <!-- Stats -->
+      <div role="tabpanel" class="tab-pane" id="stats">
+        <% pokemon.stats.forEach(function(stat){%>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>HP</strong>
+            <span class="badge"><%= stat.hp %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Attack</strong>
+            <span class="badge"><%= stat.attack %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Defense</strong>
+            <span class="badge"><%= stat.defense %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Speed</strong>
+            <span class="badge"><%= stat.speed %></span>
+          </li>
+          <li class="list-group-item">
+            <strong>Total</strong>
+            <span class="badge"><%= stat.total %></span>
+          </li>
+          <% }); %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%- include('footer') -%>

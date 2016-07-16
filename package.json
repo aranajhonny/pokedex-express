@@ -1,0 +1,22 @@
+{
+  "name": "Pokedex",
+  "version": "0.0.1",
+  "description": "Simple application created by express",
+  "private": false,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "author": "Jhonny Arana <jhonnyjosearana@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "mongoose": "^3.8.18",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "stylus": "0.54.5"
+  }
+}
