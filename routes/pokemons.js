@@ -20,7 +20,7 @@ router.get('/api/all', function(req, res, next) {
     if (err){
       return res.send(err);
     }
-       // res.render('pokemons/index',{pokemons: pokemon});
+       // res.render('index',{pokemons: pokemon});
        res.setHeader('Access-Control-Allow-Origin', '*');
        res.setHeader('Cache-Control', 'no-cache');
        res.send(pokemon);
