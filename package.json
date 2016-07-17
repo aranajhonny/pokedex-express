@@ -1,5 +1,5 @@
 {
-  "name": "Pokedex",
+  "name": "Pokedex-express",
   "version": "0.0.1",
   "description": "Simple application created by express",
   "private": false,
