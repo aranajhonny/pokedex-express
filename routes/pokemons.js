@@ -6,14 +6,25 @@ var _ = require('lodash')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	  Pokemon.find({}, function(err,pokemon){
-	  	if (err){
-	  		return res.send(err);
-	  	}
-       res.render('pokemons/index',{pokemons: pokemon});
-    // res.send(artists); json formato
-	});
+ Pokemon.find({}, function(err,pokemon){
+  if (err){
+   return res.send(err);
+ }
+ res.render('pokemons/index',{pokemons: pokemon});
+});
 
+});
+
+router.get('/api/all', function(req, res, next) {
+  Pokemon.find({}, function(err,pokemon){
+    if (err){
+      return res.send(err);
+    }
+       // res.render('pokemons/index',{pokemons: pokemon});
+       res.setHeader('Access-Control-Allow-Origin', '*');
+       res.setHeader('Cache-Control', 'no-cache');
+       res.send(pokemon);
+     });
 });
 
 router.get('/add', function(req, res){
@@ -21,9 +32,19 @@ router.get('/add', function(req, res){
 });
 
 router.get('/:pokemon_id', function(req,res){
+  Pokemon.findById(req.params.pokemon_id, function(err,pokemon){
+    res.render('pokemons/detail',{pokemon: pokemon})
+  });
+});
+
+router.get('/api/:pokemon_id', function(req,res){
 	Pokemon.findById(req.params.pokemon_id, function(err,pokemon){
-		res.render('pokemons/detail',{pokemon: pokemon})
-	});
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.json(pokemon);
+    // res.send(pokemon);
+  });
 });
 
 router.post('/', function(req, res){
@@ -39,16 +60,16 @@ router.post('/', function(req, res){
     abilities:req.body.abilities,
     evolution:req.body.evolution
   };
-	if (!_.isUndefined(name)|| name!== '') {
-		var pokemon = new Pokemon(poke);
-			pokemon.save(function(err,pokemon){
-				if (err) {
-					return res.send(err);
-				}
-        res.send('guardado')
-			});
-  	}else{
-        res.send('por favor specifique un nombre de pokemon');
-    }
+  if (!_.isUndefined(name)|| name!== '') {
+    var pokemon = new Pokemon(poke);
+    pokemon.save(function(err,pokemon){
+      if (err) {
+       return res.send(err);
+     }
+     res.send('guardado')
+   });
+  }else{
+    res.send('por favor specifique un nombre de pokemon');
+  }
 })
 module.exports = router;
