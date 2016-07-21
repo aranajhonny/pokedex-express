@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 });
 
 });
-
 router.get('/api/all', function(req, res, next) {
   Pokemon.find({}, function(err,pokemon){
     if (err){
