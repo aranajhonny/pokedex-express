@@ -9,16 +9,16 @@
   "author": "Jhonny Arana <jhonnyjosearana@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "~1.15.1",
+    "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "ejs": "~2.4.1",
-    "express": "~4.13.4",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
     "handlebars": "^4.0.5",
-    "mongoose": "^3.8.18",
-    "morgan": "~1.7.0",
+    "mongoose": "^4.9.1",
+    "morgan": "~1.8.1",
     "mustache": "^2.2.1",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "~2.4.1",
     "stylus": "0.54.5"
   }
 }
